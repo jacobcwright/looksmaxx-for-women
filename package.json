@@ -16,6 +16,7 @@
     "@expo/vector-icons": "^14.0.0",
     "@react-native-async-storage/async-storage": "1.21.0",
     "@react-navigation/native": "^6.0.2",
+    "@supabase/auth-helpers-react": "^0.4.2",
     "@supabase/supabase-js": "^2.41.1",
     "expo": "~50.0.14",
     "expo-font": "~11.10.3",
