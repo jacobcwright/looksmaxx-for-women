@@ -11,7 +11,7 @@ const Onboarding = (props: Props) => {
   )
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       {(() => {
         switch (onboardingStep) {
           case '0':
@@ -56,6 +56,10 @@ const Onboarding = (props: Props) => {
         title='Next'
         onPress={() => {
           const nextStep = parseInt(onboardingStep) + 1
+          if (nextStep > 4) {
+            setOnboardingStep('0')
+            return
+          }
           setOnboardingStep(nextStep.toString())
         }}
       />
@@ -65,4 +69,11 @@ const Onboarding = (props: Props) => {
 
 export default Onboarding
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFB1D7',
+  },
+})

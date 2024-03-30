@@ -9,6 +9,7 @@ import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react'
 import { useSession } from '@supabase/auth-helpers-react'
+import Onboarding from './onboarding'
 
 import { useColorScheme } from '@/components/useColorScheme'
 
@@ -30,6 +31,7 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
   })
+  const session = useSession()
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -46,22 +48,20 @@ export default function RootLayout() {
     return null
   }
 
+  if (!session) {
+    return <Onboarding />
+  }
+
   return <RootLayoutNav />
 }
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme()
-  const session = useSession()
-  const user = session?.user
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        {user ? (
-          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        ) : (
-          <Stack.Screen name='onboarding' options={{ headerShown: false }} />
-        )}
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   )
