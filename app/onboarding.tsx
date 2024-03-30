@@ -1,6 +1,7 @@
 import { Button, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useAsyncStorage } from '../hooks/useAsyncStorage'
+import SplashOne from '@/components/Onboarding/Welcome/SplashOne'
 
 type Props = {}
 
@@ -10,16 +11,21 @@ const Onboarding = (props: Props) => {
     '0'
   )
 
+  const handleNext = () => {
+    const nextStep = parseInt(onboardingStep) + 1
+    if (nextStep > 4) {
+      setOnboardingStep('0')
+      return
+    }
+    setOnboardingStep(nextStep.toString())
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       {(() => {
         switch (onboardingStep) {
           case '0':
-            return (
-              <View>
-                <Text>Step 0</Text>
-              </View>
-            )
+            return <SplashOne onPress={handleNext} />
           case '1':
             return (
               <View>
@@ -52,17 +58,6 @@ const Onboarding = (props: Props) => {
             )
         }
       })()}
-      <Button
-        title='Next'
-        onPress={() => {
-          const nextStep = parseInt(onboardingStep) + 1
-          if (nextStep > 4) {
-            setOnboardingStep('0')
-            return
-          }
-          setOnboardingStep(nextStep.toString())
-        }}
-      />
     </SafeAreaView>
   )
 }
