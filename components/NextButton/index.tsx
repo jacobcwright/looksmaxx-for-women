@@ -16,7 +16,7 @@ const NextButton = (props: Props) => {
         padding: 16,
         borderRadius: 20,
         position: 'absolute',
-        bottom: 20,
+        bottom: 40,
         right: 20,
       }}
       onPress={props.onPress}

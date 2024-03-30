@@ -2,6 +2,8 @@ import { Button, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useAsyncStorage } from '../hooks/useAsyncStorage'
 import SplashOne from '@/components/Onboarding/Welcome/SplashOne'
+import SplashTwo from '@/components/Onboarding/Welcome/SplashTwo'
+import SplashThree from '@/components/Onboarding/Welcome/SplashThree'
 
 type Props = {}
 
@@ -21,23 +23,17 @@ const Onboarding = (props: Props) => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <>
       {(() => {
         switch (onboardingStep) {
           case '0':
             return <SplashOne onPress={handleNext} />
           case '1':
-            return (
-              <View>
-                <Text>Step 1</Text>
-              </View>
-            )
+            return <SplashTwo onPress={handleNext} />
+
           case '2':
-            return (
-              <View>
-                <Text>Step 2</Text>
-              </View>
-            )
+            return <SplashThree onPress={handleNext} />
+
           case '3':
             return (
               <View>
@@ -58,17 +54,18 @@ const Onboarding = (props: Props) => {
             )
         }
       })()}
-    </SafeAreaView>
+      <View style={{ position: 'absolute', bottom: 20, left: 20 }}>
+        <Button
+          title='Reset'
+          onPress={() => {
+            setOnboardingStep('0')
+          }}
+        />
+      </View>
+    </>
   )
 }
 
 export default Onboarding
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFB1D7',
-  },
-})
+const styles = StyleSheet.create({})

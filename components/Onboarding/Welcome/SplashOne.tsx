@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    gap: 20,
     alignItems: 'center',
+    gap: 20,
     backgroundColor: '#FFB1D7',
   },
   image: {
