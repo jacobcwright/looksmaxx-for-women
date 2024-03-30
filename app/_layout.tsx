@@ -28,6 +28,9 @@ SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
+    Inter: require('../assets/fonts/InterVariable.ttf'),
+    DMSerifDisplay: require('../assets/fonts/DMSerifDisplay-Regular.ttf'),
+    DMSerifDisplayItalic: require('../assets/fonts/DMSerifDisplay-Italic.ttf'),
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
   })
