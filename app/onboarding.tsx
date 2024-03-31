@@ -4,6 +4,12 @@ import { useAsyncStorage } from '../hooks/useAsyncStorage'
 import SplashOne from '@/components/Onboarding/Welcome/SplashOne'
 import SplashTwo from '@/components/Onboarding/Welcome/SplashTwo'
 import SplashThree from '@/components/Onboarding/Welcome/SplashThree'
+import Demographics from '@/components/Onboarding/UserInfo/Demographics'
+import Goals from '@/components/Onboarding/UserInfo/Goals'
+import Stepper from '@/components/Stepper'
+import FaceScan from '@/components/Onboarding/Scans/FaceScan'
+import BodyScan from '@/components/Onboarding/Scans/BodyScan'
+import NotFoundScreen from './+not-found'
 
 type Props = {}
 
@@ -30,28 +36,38 @@ const Onboarding = (props: Props) => {
             return <SplashOne onPress={handleNext} />
           case '1':
             return <SplashTwo onPress={handleNext} />
-
           case '2':
             return <SplashThree onPress={handleNext} />
-
           case '3':
             return (
-              <View>
-                <Text>Step 3</Text>
-              </View>
+              <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
+                <Stepper steps={5} currentStep={1} />
+                <Demographics />
+              </SafeAreaView>
             )
           case '4':
             return (
-              <View>
-                <Text>Step 4</Text>
-              </View>
+              <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
+                <Stepper steps={5} currentStep={2} />
+                <Goals />
+              </SafeAreaView>
+            )
+          case '5':
+            return (
+              <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
+                <Stepper steps={5} currentStep={3} />
+                <FaceScan />
+              </SafeAreaView>
+            )
+          case '6':
+            return (
+              <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
+                <Stepper steps={5} currentStep={4} />
+                <BodyScan />
+              </SafeAreaView>
             )
           default:
-            return (
-              <View>
-                <Text>Step 0</Text>
-              </View>
-            )
+            return <NotFoundScreen />
         }
       })()}
       <View style={{ position: 'absolute', bottom: 20, left: 20 }}>

@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, SafeAreaView } from 'react-native'
 import React from 'react'
 
 type Props = {}
 
 const FaceScan = (props: Props) => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>FaceScan</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 
