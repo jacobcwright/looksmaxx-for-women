@@ -9,7 +9,7 @@ import Goals from '@/components/Onboarding/UserInfo/Goals'
 import Stepper from '@/components/Stepper'
 import FaceScan from '@/components/Onboarding/Scans/FaceScan'
 import BodyScan from '@/components/Onboarding/Scans/BodyScan'
-import NotFoundScreen from './+not-found'
+import NextButton from '@/components/NextButton'
 
 type Props = {}
 
@@ -21,7 +21,7 @@ const Onboarding = (props: Props) => {
 
   const handleNext = () => {
     const nextStep = parseInt(onboardingStep) + 1
-    if (nextStep > 4) {
+    if (nextStep > 6) {
       setOnboardingStep('0')
       return
     }
@@ -48,7 +48,12 @@ const Onboarding = (props: Props) => {
                 }}
               >
                 <Stepper steps={5} currentStep={1} />
-                <Demographics />
+                <Demographics onPress={handleNext} />
+                <NextButton
+                  onPress={handleNext}
+                  backgroundColor={'#FFB1D7'}
+                  color={'#FFF'}
+                />
               </SafeAreaView>
             )
           case '4':
@@ -62,6 +67,11 @@ const Onboarding = (props: Props) => {
               >
                 <Stepper steps={5} currentStep={2} />
                 <Goals />
+                <NextButton
+                  onPress={handleNext}
+                  backgroundColor={'#FFB1D7'}
+                  color={'#FFF'}
+                />
               </SafeAreaView>
             )
           case '5':
@@ -75,6 +85,11 @@ const Onboarding = (props: Props) => {
               >
                 <Stepper steps={5} currentStep={3} />
                 <FaceScan />
+                <NextButton
+                  onPress={handleNext}
+                  backgroundColor={'#FFB1D7'}
+                  color={'#FFF'}
+                />
               </SafeAreaView>
             )
           case '6':
@@ -88,20 +103,17 @@ const Onboarding = (props: Props) => {
               >
                 <Stepper steps={5} currentStep={4} />
                 <BodyScan />
+                <NextButton
+                  onPress={handleNext}
+                  backgroundColor={'#FFB1D7'}
+                  color={'#FFF'}
+                />
               </SafeAreaView>
             )
           default:
-            return <NotFoundScreen />
+            return <SplashOne onPress={handleNext} />
         }
       })()}
-      <View style={{ position: 'absolute', bottom: 20, left: 20 }}>
-        <Button
-          title='Reset'
-          onPress={() => {
-            setOnboardingStep('0')
-          }}
-        />
-      </View>
     </>
   )
 }

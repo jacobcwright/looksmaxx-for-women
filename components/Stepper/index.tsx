@@ -22,7 +22,6 @@ const Stepper = ({
           backgroundColor: currentStepColor,
         }}
       />
-      {/* <Text>25%</Text> */}
     </View>
   )
 }
@@ -31,6 +30,7 @@ export default Stepper
 
 const styles = StyleSheet.create({
   stepper: {
+    marginTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
     width: '80%',
