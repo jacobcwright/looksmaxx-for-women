@@ -40,28 +40,52 @@ const Onboarding = (props: Props) => {
             return <SplashThree onPress={handleNext} />
           case '3':
             return (
-              <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
+              <SafeAreaView
+                style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  backgroundColor: '#FFF8F8',
+                }}
+              >
                 <Stepper steps={5} currentStep={1} />
                 <Demographics />
               </SafeAreaView>
             )
           case '4':
             return (
-              <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
+              <SafeAreaView
+                style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  backgroundColor: '#FFF8F8',
+                }}
+              >
                 <Stepper steps={5} currentStep={2} />
                 <Goals />
               </SafeAreaView>
             )
           case '5':
             return (
-              <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
+              <SafeAreaView
+                style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  backgroundColor: '#FFF8F8',
+                }}
+              >
                 <Stepper steps={5} currentStep={3} />
                 <FaceScan />
               </SafeAreaView>
             )
           case '6':
             return (
-              <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
+              <SafeAreaView
+                style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  backgroundColor: '#FFF8F8',
+                }}
+              >
                 <Stepper steps={5} currentStep={4} />
                 <BodyScan />
               </SafeAreaView>
