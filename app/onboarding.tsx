@@ -48,7 +48,7 @@ const Onboarding = (props: Props) => {
                 }}
               >
                 <Stepper steps={5} currentStep={1} />
-                <Demographics onPress={handleNext} />
+                <Demographics />
                 <NextButton
                   onPress={handleNext}
                   backgroundColor={'#FFB1D7'}
